@@ -1,0 +1,37 @@
+<div class="body">
+	<div class="backGroundImage container-fluid">
+		<div class="box">
+			<form [formGroup]="addform" (ngSubmit)="Login()">
+				<div class="form">
+					<!-- <img src="../../../assets/login.png"/> -->
+					<!-- <h2>Login</h2> -->
+					<mat-nav-list>
+						 
+					<h1 mat-list-item>
+						<mat-icon class="rotate">fitness_center</mat-icon>
+						Login
+						<mat-icon>fitness_center</mat-icon> 
+					</h1>
+					</mat-nav-list>
+					<div class="inputBox">
+						<input type="text" formControlName="email" required>
+						<span>Email</span>
+						<i></i>
+					</div>
+					<div class="inputBox">
+						<input type="password" formControlName="password" required>
+						<span>Password</span><i class="fa-solid fa-dumbbell"></i>
+						<i></i>
+					</div>
+					<!-- <div class="links">
+						<a href="#">Forgot Password ?</a>
+						<a href="#">SignUp</a>
+					</div> -->
+					<p [ngStyle]="{display:display}" class="alert alert-danger">Your Email or Password is not valid </p>
+					<button class="button">LOGIN</button>
+
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

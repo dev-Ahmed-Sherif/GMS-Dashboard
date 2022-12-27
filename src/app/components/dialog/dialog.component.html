@@ -1,0 +1,66 @@
+<h1 mat-dialog-title>Add Trainee</h1>
+<form [formGroup]="traineeForm" style="z-index: 1;" (ngSubmit)="addTrainee()">
+    <div mat-dialog-content>
+        <mat-form-field appearance="outline">
+            <mat-label>Trainee Name</mat-label>
+            <input formControlName="firstName" matInput placeholder="Name">
+        </mat-form-field>
+        <mat-form-field appearance="outline" >
+            <mat-label>Trainee Email</mat-label>
+            <input formControlName="email" matInput placeholder="Email" [readonly]="editData">
+        </mat-form-field>
+        <mat-form-field appearance="outline" *ngIf="!editData">
+            <mat-label>password</mat-label>
+            <input formControlName="password" matInput placeholder="Password">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Subscription</mat-label>
+            <mat-select formControlName="subscription" placeholder="Category">
+                <mat-option value="premium">Premium</mat-option>
+                <mat-option value="standard">Standerd</mat-option>
+                <mat-option value="basic">Basic</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Start Date</mat-label>
+            <input formControlName="startDate" matInput [matDatepicker]="picker">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    
+    
+        <label for=""><h3>Trainee Gender</h3></label>
+        <mat-radio-group formControlName="gender" class="example-radio-group">
+            <mat-radio-button class="example-radio-button" *ngFor="let gender of genderList" [value]="gender">
+                {{gender}}
+            </mat-radio-button>
+        </mat-radio-group>
+        
+        <!-- Phone number -->
+        <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Telephone</mat-label>
+            <span matPrefix> &nbsp;</span>
+            <input type="tel" matInput placeholder="555-555-1234"  formControlName="phoneNumber">
+            <mat-icon matSuffix>mode_edit</mat-icon>
+          </mat-form-field>
+
+
+
+
+
+
+
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input formControlName="address" matInput type="text" placeholder="address">
+        </mat-form-field>
+        <!-- <mat-form-field appearance="outline">
+            <mat-label>Comment</mat-label>
+            <textarea formControlName="comment" matInput placeholder="Text"></textarea>
+        </mat-form-field> -->
+    </div>
+    <div mat-dialog-action [align]="'end'" >
+        <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        <button mat-raised-button style="margin-left:8px ;" color="primary" type="submit" >{{actionBtn}}</button>
+    </div>
+</form>

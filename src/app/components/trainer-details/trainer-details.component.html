@@ -1,0 +1,53 @@
+
+<script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+<div class="wrapper">
+  <div class="left">
+    <!-- <img src={{user.profileImage}}  alt="user" width="100"> -->
+    <h1>{{user.firstName}}</h1>
+    <h4>{{user.role}}</h4>
+    <p>{{user.address}}</p>
+    <h4 class="text-dark">Assigned Trainee:</h4>
+    <li *ngFor="let item of user.clientIds">
+      <h5>{{item.firstName}}</h5>
+    </li>
+   
+  </div>
+  <div class="right">
+    <div class="info">
+      <h3>Trainer Details</h3>
+      <div class="info_data">
+        <div class="data">
+          <h4>Email</h4>
+          <p>{{user.email}}</p>
+        </div>
+        <div class="data">
+          <h4>Phone</h4>
+          <p>{{user.phoneNumber}}</p>
+        </div>
+        <div class="data">
+          
+          
+        </div>
+      </div>
+    </div>
+
+    <div class="projects">
+      <h3>Data</h3>
+      <div class="projects_data">
+        <div class="data">
+          <h4>Address</h4>
+          <p>{{user.address}}</p>
+        </div>
+        <div class="data">
+          <h4 style="margin-left: 30px;">Gender</h4>
+          <p style="margin-left: 30px;">{{user.gender}}</p>
+        </div>
+      </div>
+    </div>
+
+      <mat-dialog-actions align="end">
+        <button mat-button mat-dialog-close>Cancel</button>
+      </mat-dialog-actions>
+  </div>
+</div>
